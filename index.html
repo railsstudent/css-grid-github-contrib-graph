@@ -2,6 +2,8 @@
   <head>
     <title>Github contribution graph with CSS Grid</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <div class="github">
@@ -13,42 +15,48 @@
         <div class="weekday">&nbsp;</div>
         <div class="weekday">Fri</div>
         <div class="weekday">&nbsp;</div>
-      <div>
+      </div>
       <div class="months">
-        <div class="mar">Mar</div>
-        <div class="weekday">Apr</div>
-        <div class="weekday">May</div>
-        <div class="weekday">Jun</div>
-        <div class="weekday">Jul</div>
-        <div class="weekday">Aug</div>
-        <div class="weekday">Sep</div>
-        <div class="weekday">Oct</div>
-        <div class="weekday">Nov</div>
-        <div class="weekday">Dec</div>
-        <div class="weekday">Jan</div>
-        <div class="weekday">Feb</div>
+        <div class="mar month">Mar</div>
+        <div class="apr month">Apr</div>
+        <div class="may month">May</div>
+        <div class="jun month">Jun</div>
+        <div class="jul month">Jul</div>
+        <div class="aug month">Aug</div>
+        <div class="sep month">Sep</div>
+        <div class="oct month">Oct</div>
+        <div class="nov month">Nov</div>
+        <div class="dec month">Dec</div>
+        <div class="jan month">Jan</div>
+        <div class="feb month">Feb</div>
       </div>
       <div class="contributions">
-        Contributions
-        <!--
-        <button class="long-button item blue">C</button>
-        <button class="item gray">/</button>
-        <button class="item gray">7</button>
-        <button class="item gray">8</button>
-        <button class="item gray">9</button>
-        <button class="item gray">x</button>
-        <button class="item gray">4</button>
-        <button class="item gray">5</button>
-        <button class="item gray">6</button>
-        <button class="item gray">-</button>
-        <button class="item gray">1</button>
-        <button class="item gray">2</button>
-        <button class="item gray">3</button>
-        <button class="item gray">+</button>
-        <button class="long-button item gray">0</button>
-        <button class="item green">=</button>
-        -->
-      <div>
+      </div>
     </div>
   </body>
+
+  <script type="text/javascript">
+    var contributions = document.getElementsByClassName('contributions')[0];
+    var str = '';
+    for (var i = 0; i < 55*7; i++) {
+      str += `<div class="square ${getContribColor()}"></div>`;
+    }
+    contributions.innerHTML = str;
+
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    }
+
+    function getContribColor() {
+      var num = getRandomInt(4);
+      if (num === 0) {
+        return 'gray';
+      } else if (num === 1) {
+        return 'darkgreen';
+      } else if (num === 2) {
+        return 'green';
+      }
+      return 'lightgreen';
+    }
+  </script>
 </html>

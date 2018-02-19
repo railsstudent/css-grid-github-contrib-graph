@@ -1,0 +1,88 @@
+:root {
+  --squareSize: 15px;
+  --defaultColor: #767676;
+  --darkgreen: rgb(25, 97, 39);
+  --green: rgb(35, 154, 59);
+  --lightgreen: rgb(198, 228, 139);
+  --gray: rgb(235, 237, 240);
+}
+.github {
+  display: grid;
+
+  grid-template-columns: max-content 4fr;
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas:
+    ". months"
+    "weekdays contributions";
+
+  max-width: 800px;
+  font-size: 14px;
+  color: var(--defaultColor);
+}
+
+.weekdays {
+  grid-area: weekdays;
+  padding: 0 5px;
+
+  display: grid;
+  grid-row-gap: 5px;
+  grid-template-rows: repeat(7, var(--squareSize));
+}
+
+.months {
+  grid-area: months;
+  padding: 5px 0;
+
+  display: grid;
+  grid-template-columns: repeat(55, var(--squareSize));
+  justify-items: center;
+  align-items: center;
+}
+
+.month {
+  grid-row: 1;
+}
+
+.mar { grid-column: 1 / span 5; }
+.apr { grid-column: 6 / span 4; }
+.may { grid-column: 10 / span 5; }
+.jun { grid-column: 15 / span 4; }
+.jul { grid-column: 19 / span 5; }
+.aug { grid-column: 24 / span 5; }
+.sep { grid-column: 29 / span 4; }
+.oct { grid-column: 33 / span 5; }
+.nov { grid-column: 38 / span 4; }
+.dec { grid-column: 42 / span 5; }
+.jan { grid-column: 47 / span 5; }
+.feb { grid-column: 52 / span 4; }
+
+.contributions {
+  grid-area: contributions;
+
+  display: grid;
+  grid-template-columns: repeat(55, var(--squareSize));
+  grid-template-rows: repeat(7, var(--squareSize));
+  grid-gap: 5px;
+}
+
+.square {
+  width: var(--squareSize);
+  height: var(--squareSize);
+  border: 1px solid var(--defaultColor);
+}
+
+.darkgreen {
+  background: var(--darkgreen);
+}
+
+.green {
+  background: var(--green);
+}
+
+.lightgreen {
+  background: var(--lightgreen);
+}
+
+.gray {
+  background: var(--gray);
+}
