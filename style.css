@@ -5,6 +5,8 @@
   --green: rgb(35, 154, 59);
   --lightgreen: rgb(198, 228, 139);
   --gray: rgb(235, 237, 240);
+  --numWeeks: 52;
+  --grid-gap: 5px;
 }
 .github {
   display: grid;
@@ -25,7 +27,7 @@
   padding: 0 5px;
 
   display: grid;
-  grid-row-gap: 5px;
+  grid-row-gap: var(--grid-gap);
   grid-template-rows: repeat(7, var(--squareSize));
 }
 
@@ -34,7 +36,8 @@
   padding: 5px 0;
 
   display: grid;
-  grid-template-columns: repeat(55, var(--squareSize));
+  grid-template-columns: repeat(var(--numWeeks), var(--squareSize));
+  grid-column-gap: var(--grid-gap);
   justify-items: center;
   align-items: center;
 }
@@ -48,21 +51,22 @@
 .may { grid-column: 10 / span 5; }
 .jun { grid-column: 15 / span 4; }
 .jul { grid-column: 19 / span 5; }
-.aug { grid-column: 24 / span 5; }
-.sep { grid-column: 29 / span 4; }
-.oct { grid-column: 33 / span 5; }
-.nov { grid-column: 38 / span 4; }
-.dec { grid-column: 42 / span 5; }
-.jan { grid-column: 47 / span 5; }
-.feb { grid-column: 52 / span 4; }
+.aug { grid-column: 24 / span 4; }
+.sep { grid-column: 28 / span 4; }
+.oct { grid-column: 32 / span 5; }
+.nov { grid-column: 37 / span 4; }
+.dec { grid-column: 41 / span 4; }
+.jan { grid-column: 45 / span 5; }
+.feb { grid-column: 50 / span 3; }
 
 .contributions {
   grid-area: contributions;
 
   display: grid;
-  grid-template-columns: repeat(55, var(--squareSize));
+  grid-template-columns: repeat(var(--numWeeks), var(--squareSize));
   grid-template-rows: repeat(7, var(--squareSize));
-  grid-gap: 5px;
+  grid-gap: var(--grid-gap);
+  grid-auto-flow: column;
 }
 
 .square {
