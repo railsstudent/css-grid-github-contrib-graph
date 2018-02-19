@@ -11,7 +11,7 @@
 .github {
   display: grid;
 
-  grid-template-columns: max-content 4fr;
+  grid-template-columns: max-content 1fr;
   grid-template-rows: repeat(2, auto);
   grid-template-areas:
     ". months"
