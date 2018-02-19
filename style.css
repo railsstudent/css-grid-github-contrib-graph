@@ -7,27 +7,33 @@
   --gray: rgb(235, 237, 240);
   --numWeeks: 52;
   --grid-gap: 5px;
+  --github-gap: 10px;
 }
 .github {
   display: grid;
 
   grid-template-columns: max-content 1fr;
-  grid-template-rows: repeat(2, auto);
+  grid-gap: var(--github-gap);
   grid-template-areas:
     ". months"
     "weekdays contributions";
 
-  max-width: 800px;
   font-size: 14px;
   color: var(--defaultColor);
 }
 
 .weekdays {
   grid-area: weekdays;
-  padding: 0 5px;
+}
 
+.contributions {
+  grid-area: contributions;
+}
+
+.weekdays,
+.contributions {
   display: grid;
-  grid-row-gap: var(--grid-gap);
+  grid-gap: var(--grid-gap);
   grid-template-rows: repeat(7, var(--squareSize));
 }
 
@@ -60,18 +66,11 @@
 .feb { grid-column: 50 / span 3; }
 
 .contributions {
-  grid-area: contributions;
-
-  display: grid;
-  grid-template-columns: repeat(var(--numWeeks), var(--squareSize));
-  grid-template-rows: repeat(7, var(--squareSize));
-  grid-gap: var(--grid-gap);
   grid-auto-flow: column;
+  grid-auto-columns: var(--squareSize);
 }
 
 .square {
-  width: var(--squareSize);
-  height: var(--squareSize);
   border: 1px solid var(--defaultColor);
 }
 
